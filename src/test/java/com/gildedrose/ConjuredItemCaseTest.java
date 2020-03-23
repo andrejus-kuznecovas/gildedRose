@@ -25,4 +25,24 @@ public class ConjuredItemCaseTest {
     assertEquals(-1, gildedRose.items[0].sellIn);
     assertEquals(1, gildedRose.items[0].quality);
   }
+
+  @Test
+  public void conjured_items_quality_never_negative() {
+    Item[] items = new Item[]{new Item("Conjured Kiwi", 0, 3)};
+    GildedRose gildedRose = new GildedRose(items);
+    gildedRose.updateQuality();
+
+    assertEquals(-1, gildedRose.items[0].sellIn);
+    assertEquals(0, gildedRose.items[0].quality);
+  }
+
+  @Test
+  public void conjured_items_quality_never_above_max() {
+    Item[] items = new Item[]{new Item("Conjured Tic-Tac", 10, 80)};
+    GildedRose gildedRose = new GildedRose(items);
+    gildedRose.updateQuality();
+
+    assertEquals(9, gildedRose.items[0].sellIn);
+    assertEquals(50, gildedRose.items[0].quality);
+  }
 }
