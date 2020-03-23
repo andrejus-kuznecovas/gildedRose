@@ -45,4 +45,24 @@ public class BackstagePassItemCaseTest {
     assertEquals(-1, gildedRose.items[0].sellIn);
     assertEquals(0, gildedRose.items[0].quality);
   }
+
+  @Test
+  public void backstage_pass_quality_never_below_min() {
+    Item[] items = new Item[]{new Item("Backstage passes to a Song-hammer concert", 2, -5)};
+    GildedRose gildedRose = new GildedRose(items);
+    gildedRose.updateQuality();
+
+    assertEquals(1, gildedRose.items[0].sellIn);
+    assertEquals(0, gildedRose.items[0].quality);
+  }
+
+  @Test
+  public void backstage_pass_quality_never_above_max() {
+    Item[] items = new Item[]{new Item("Backstage passes to a Song-hammer concert", 2, 60)};
+    GildedRose gildedRose = new GildedRose(items);
+    gildedRose.updateQuality();
+
+    assertEquals(1, gildedRose.items[0].sellIn);
+    assertEquals(50, gildedRose.items[0].quality);
+  }
 }
