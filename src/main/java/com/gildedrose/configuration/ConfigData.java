@@ -1,5 +1,12 @@
 package com.gildedrose.configuration;
 
+import com.gildedrose.itemcase.ItemCase;
+import com.gildedrose.itemcase.cases.legendary.SulfurasItemCase;
+import com.gildedrose.itemcase.cases.nonlegendary.AgedBrieItemCase;
+import com.gildedrose.itemcase.cases.nonlegendary.BackstagePassItemCase;
+import com.gildedrose.itemcase.cases.nonlegendary.ConjuredItemCase;
+import java.util.Map;
+
 public class ConfigData {
 
   private ConfigData() {
@@ -13,4 +20,15 @@ public class ConfigData {
   public static final int ITEM_QUALITY_MIN_VALUE = 0;
 
   public static final int LEGENDARY_SULFURAS_QUALITY = 80;
+
+  private static final Map<String, ItemCase> ITEM_CASE_MAP = Map.ofEntries(
+      Map.entry("Aged Brie", new AgedBrieItemCase()),
+      Map.entry("Sulfuras, Hand of Ragnaros", new SulfurasItemCase()),
+      Map.entry("Backstage passes", new BackstagePassItemCase()),
+      Map.entry("Conjured", new ConjuredItemCase())
+  );
+
+  public static Map<String, ItemCase> getItemCaseMap() {
+    return ITEM_CASE_MAP;
+  }
 }
