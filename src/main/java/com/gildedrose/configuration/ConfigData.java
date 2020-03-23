@@ -11,4 +11,6 @@ public class ConfigData {
   public static final int CONJURED_ITEM_DECAY_VALUE = 2;
   public static final int ITEM_QUALITY_MAX_VALUE = 50;
   public static final int ITEM_QUALITY_MIN_VALUE = 0;
+
+  public static final int LEGENDARY_SULFURAS_QUALITY = 80;
 }
