@@ -6,11 +6,6 @@ public class BackstagePassItemCase extends NonLegendaryItemCase {
 
   @Override
   public int getUpdatedQuality(Item item) {
-    return getQualityChange(item);
-  }
-
-  @Override
-  public int getQualityChange(Item item) {
     return calculateBackstagePassQualityChange(item);
   }
 
