@@ -12,13 +12,13 @@ class GildedRose {
     this.items = items;
   }
 
-  private static void updateItemQuality(Item item) {
-    ItemCaseFactory.getItemCaseForItemName(item.name)
-        .updateItemQualityAndSellIn(item);
-  }
-
   public void updateQuality() {
     stream(items)
-        .forEach(GildedRose::updateItemQuality);
+        .forEach(this::updateItemQuality);
+  }
+
+  private void updateItemQuality(Item item) {
+    ItemCaseFactory.getItemCaseForItemName(item.name)
+        .updateItemQualityAndSellIn(item);
   }
 }
