@@ -37,6 +37,16 @@ public class AgedBrieItemCaseTest {
   }
 
   @Test
+  public void aged_brie_quality_never_below_min() {
+    Item[] items = new Item[]{new Item("Aged Brie", 5, -8)};
+    GildedRose gildedRose = new GildedRose(items);
+    gildedRose.updateQuality();
+
+    assertEquals(4, gildedRose.items[0].sellIn);
+    assertEquals(0, gildedRose.items[0].quality);
+  }
+
+  @Test
   public void aged_brie_name_must_be_precise() {
     Item[] items = new Item[]{new Item("Aged Brian", 5, 5)};
     GildedRose gildedRose = new GildedRose(items);
