@@ -8,10 +8,10 @@ import java.util.Optional;
 
 public class ItemCaseFactory {
 
+  private static final Map<String, ItemCase> itemCaseMap = ConfigData.getItemCaseMap();
+
   private ItemCaseFactory() {
   } //Utility classes should not have public constructors
-
-  private static final Map<String, ItemCase> itemCaseMap = ConfigData.getItemCaseMap();
 
   public static ItemCase getItemCaseForItemName(String name) {
     Optional<ItemCase> itemCaseOptional = itemCaseMap.entrySet()
